@@ -1,0 +1,13 @@
+:root {
+  --main-font: "Montserrat";
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--main-font);
+}
