@@ -1,12 +1,26 @@
-const values = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-const suits = ["picas", "tréboles", "corazones", "diamantes"];
+const suits = ["♠", "♣", "♦", "♥"];
+const cardValues = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+let visibleCard;
+let hiddenCard;
 
 const generateDeck = () => {
   const deck = [];
-  values.forEach((value) => {
-    suits.forEach((suit) => {
+
+  suits.forEach((suit) => {
+    cardValues.forEach((value) => {
       deck.push({ cardValue: value, cardSuit: suit });
     });
   });
+
   return deck;
 };
+
+const selectCards = () => {
+  visibleCard =
+    generateDeck()[Math.floor(Math.random() * generateDeck().length)];
+  hiddenCard =
+    generateDeck()[Math.floor(Math.random() * generateDeck().length)];
+};
+
+selectCards();
+console.log(visibleCard, hiddenCard);
