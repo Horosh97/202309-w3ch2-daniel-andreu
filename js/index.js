@@ -22,5 +22,12 @@ const selectCards = () => {
     generateDeck()[Math.floor(Math.random() * generateDeck().length)];
 };
 
-selectCards();
-console.log(visibleCard, hiddenCard);
+const compareCards = () => {
+  if (visibleCard.cardValue < hiddenCard.cardValue) {
+    return "bigger";
+  } else if (visibleCard.cardValue > hiddenCard.cardValue) {
+    return "smaller";
+  } else {
+    return "equal";
+  }
+};
