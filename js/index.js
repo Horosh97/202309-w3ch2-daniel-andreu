@@ -22,8 +22,10 @@ const visibleCardElement = document.querySelector(".visible-card");
 const hiddenCardElement = document.querySelector(".hidden-card");
 const biggerButtonElement = document.querySelector(".bigger-button");
 const smallerButtonElement = document.querySelector(".smaller-button");
+const equalButtonElement = document.querySelector(".equal-button");
 const newCardButtonElement = document.querySelector(".new-card-button");
 const homeButtonElement = document.querySelector(".home-button");
+const answerElement = document.querySelector(".answer");
 const visibleCardUpPositionElement =
   visibleCardElement.querySelector(".position-up");
 const visibleCardMiddlePositionElement =
@@ -72,6 +74,42 @@ const compareCards = () => {
   }
 };
 
+const compareResults = (choice) => {
+  if (compareCards() === choice) {
+    answerElement.textContent = "Si! Muy bien!";
+  } else {
+    answerElement.textContent = "No has acertado, a la próxima!";
+  }
+};
+
 newCardButtonElement.addEventListener("click", (event) => {
   selectCards();
+  answerElement.classList.add("hidden");
+  hiddenCardUpPositionElement.classList.add("hidden");
+  hiddenCardMiddlePositionElement.classList.add("hidden");
+  hiddenCardDownPositionElement.classList.add("hidden");
+});
+
+biggerButtonElement.addEventListener("click", (event) => {
+  answerElement.classList.remove("hidden");
+  hiddenCardUpPositionElement.classList.remove("hidden");
+  hiddenCardMiddlePositionElement.classList.remove("hidden");
+  hiddenCardDownPositionElement.classList.remove("hidden");
+  compareResults("bigger");
+});
+
+smallerButtonElement.addEventListener("click", (event) => {
+  answerElement.classList.remove("hidden");
+  hiddenCardUpPositionElement.classList.remove("hidden");
+  hiddenCardMiddlePositionElement.classList.remove("hidden");
+  hiddenCardDownPositionElement.classList.remove("hidden");
+  compareResults("smaller");
+});
+
+equalButtonElement.addEventListener("click", (event) => {
+  answerElement.classList.remove("hidden");
+  hiddenCardUpPositionElement.classList.remove("hidden");
+  hiddenCardMiddlePositionElement.classList.remove("hidden");
+  hiddenCardDownPositionElement.classList.remove("hidden");
+  compareResults("equal");
 });
