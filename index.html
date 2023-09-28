@@ -16,29 +16,37 @@
 
 <body>
   <header class="header">
-    <h1 class="main-title">Greater or Smaller</h1>
+    <h1 class="main-title">Greater or Smaller?</h1>
   </header>
   <main class="main">
-    <section class="game-screen">
-      <section class="cards-container">
-        <div class="card visible-card"></div>
-        <div class="card hidden-card"></div>
-      </section>
-      <section class="texts-container">
+    <div class="game-screen">
+      <div class="cards-container">
+        <div class="card visible-card">
+          <span class="position-up"></span>
+          <span class="position-middle"></span>
+          <span class="position-down"></span>
+        </div>
+        <div class="card hidden-card">
+          <span class="position-up"></span>
+          <span class="position-middle"></span>
+          <span class="position-down"></span>
+        </div>
+      </div>
+      <div class="texts-container">
         <h2 class="h2">¿Qué crees?... ¿Será mayor? ¿Será menor?</h2>
         <h2 class="answer">%%resultado%%</h2>
-      </section>
-      <section class="buttons-container">
+      </div>
+      <div class="buttons-container">
         <div class="choice-buttons-container">
-          <button class="choice-button">Mayor</button>
-          <button class="choice-button">Menor</button>
+          <button class="button choice-button bigger-button">Mayor</button>
+          <button class="button choice-button smaller-button">Menor</button>
         </div>
         <div class="menu-buttons-container">
-          <button class="menu-button">Nueva Carta</button>
-          <button class="menu-button">Inicio</button>
+          <button class="button menu-button new-card-button">Nueva Carta</button>
+          <button class="button menu-button home-button">Inicio</button>
         </div>
-      </section>
-    </section>
+      </div>
+    </div>
   </main>
 </body>
 
