@@ -1,5 +1,20 @@
 const suits = ["♠", "♣", "♦", "♥"];
-const cardValues = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+const cardNames = [
+  "2",
+  "3",
+  "4",
+  "5",
+  "6",
+  "7",
+  "8",
+  "9",
+  "10",
+  "J",
+  "Q",
+  "K",
+  "A",
+];
+
 let visibleCard;
 let hiddenCard;
 
@@ -7,8 +22,8 @@ const generateDeck = () => {
   const deck = [];
 
   suits.forEach((suit) => {
-    cardValues.forEach((value) => {
-      deck.push({ cardValue: value, cardSuit: suit });
+    cardNames.forEach((name, position) => {
+      deck.push({ cardName: name, cardSuit: suit, cardValue: position });
     });
   });
 
