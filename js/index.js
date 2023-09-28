@@ -17,6 +17,7 @@ const cardNames = [
 
 let visibleCard;
 let hiddenCard;
+let freezed = false;
 
 const gameScreenElement = document.querySelector(".game-screen");
 const menuScreenElement = document.querySelector(".menu-screen");
@@ -55,6 +56,7 @@ const generateDeck = () => {
 };
 
 const selectCards = () => {
+  freezed = false;
   visibleCard =
     generateDeck()[Math.floor(Math.random() * generateDeck().length)];
   hiddenCard =
@@ -78,13 +80,21 @@ const compareCards = () => {
 };
 
 const compareResults = (choice) => {
-  if (!answerElement.classList.contains("hidden")) {
-    if (compareCards() === choice) {
-      answerElement.textContent = "Si! Muy bien!";
-    } else {
-      answerElement.textContent = "No has acertado, a la próxima!";
-    }
+  if (compareCards() === choice) {
+    answerElement.textContent = "Si! Muy bien!";
+  } else {
+    answerElement.textContent = "No has acertado, a la próxima!";
   }
+
+  freezed = true;
+
+  setTimeout(() => {
+    selectCards();
+    answerElement.classList.add("hidden");
+    hiddenCardUpPositionElement.classList.add("hidden");
+    hiddenCardMiddlePositionElement.classList.add("hidden");
+    hiddenCardDownPositionElement.classList.add("hidden");
+  }, 2000);
 };
 
 newCardButtonElement.addEventListener("click", (event) => {
@@ -96,27 +106,33 @@ newCardButtonElement.addEventListener("click", (event) => {
 });
 
 biggerButtonElement.addEventListener("click", (event) => {
-  answerElement.classList.remove("hidden");
-  hiddenCardUpPositionElement.classList.remove("hidden");
-  hiddenCardMiddlePositionElement.classList.remove("hidden");
-  hiddenCardDownPositionElement.classList.remove("hidden");
-  compareResults("bigger");
+  if (freezed === false) {
+    answerElement.classList.remove("hidden");
+    hiddenCardUpPositionElement.classList.remove("hidden");
+    hiddenCardMiddlePositionElement.classList.remove("hidden");
+    hiddenCardDownPositionElement.classList.remove("hidden");
+    compareResults("bigger");
+  }
 });
 
 smallerButtonElement.addEventListener("click", (event) => {
-  answerElement.classList.remove("hidden");
-  hiddenCardUpPositionElement.classList.remove("hidden");
-  hiddenCardMiddlePositionElement.classList.remove("hidden");
-  hiddenCardDownPositionElement.classList.remove("hidden");
-  compareResults("smaller");
+  if (freezed === false) {
+    answerElement.classList.remove("hidden");
+    hiddenCardUpPositionElement.classList.remove("hidden");
+    hiddenCardMiddlePositionElement.classList.remove("hidden");
+    hiddenCardDownPositionElement.classList.remove("hidden");
+    compareResults("smaller");
+  }
 });
 
 equalButtonElement.addEventListener("click", (event) => {
-  answerElement.classList.remove("hidden");
-  hiddenCardUpPositionElement.classList.remove("hidden");
-  hiddenCardMiddlePositionElement.classList.remove("hidden");
-  hiddenCardDownPositionElement.classList.remove("hidden");
-  compareResults("equal");
+  if (freezed === false) {
+    answerElement.classList.remove("hidden");
+    hiddenCardUpPositionElement.classList.remove("hidden");
+    hiddenCardMiddlePositionElement.classList.remove("hidden");
+    hiddenCardDownPositionElement.classList.remove("hidden");
+    compareResults("equal");
+  }
 });
 
 homeButtonElement.addEventListener("click", (event) => {
