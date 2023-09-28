@@ -1,6 +1,8 @@
 :root {
   --main-font: "Montserrat";
   --buttons-color: #ffffff;
+  --shadow-color: #000000b3;
+  --border-color: #000000;
 }
 
 *,
@@ -25,8 +27,8 @@ button {
   margin: 0;
   padding: 10px;
   text-align: center;
-  border-bottom: 1px solid #000000;
-  box-shadow: 4px 4px 4px 1px #00000047;
+  border-bottom: 2px solid var(--border-color);
+  box-shadow: 4px 4px 4px 1px var(--shadow-color);
 }
 
 .main {
@@ -45,6 +47,8 @@ button {
 }
 
 .texts-container {
+  padding-top: 15px;
+  border-top: 3.5px solid var(--border-color);
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -53,7 +57,6 @@ button {
 
 .buttons-container {
   margin: 0;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -74,24 +77,18 @@ button {
   margin: 50px;
   width: 15rem;
   height: 22rem;
-  border: 1px solid #000000;
-  border-radius: 5px;
-  display: grid;
+  border: 6.5px solid var(--border-color);
+  border-radius: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin-top: 30px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  box-shadow: 14px 14px 14px 2px #000000;
-}
-
-.visible-card {
-}
-
-.hidden-card {
+  box-shadow: 14px 14px 14px 2px var(--shadow-color);
 }
 
 .h2 {
   margin: 0;
-  padding: 5px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -101,23 +98,43 @@ button {
   text-align: center;
 }
 
-.choice-button {
-  margin: 20px;
-  width: 200px;
+.button {
   border-radius: 10px;
-  font-size: 1.3rem;
   font-weight: bold;
   background-color: var(--buttons-color);
-  padding: 15px;
   text-align: center;
+  box-shadow: 4px 4px 4px 1px var(--shadow-color);
+}
+.choice-button {
+  margin: 15px;
+  width: 260px;
+  font-size: 1.3rem;
+  padding: 15px;
 }
 
 .menu-button {
-  margin: 10px;
+  margin: 15px;
   width: 140px;
-  border-radius: 10px;
-  font-weight: bold;
-  background-color: var(--buttons-color);
   padding: 10px;
-  text-align: center;
+}
+
+.position-up {
+  padding: 20px;
+  font-size: 2.3rem;
+  display: flex;
+  justify-content: start;
+}
+
+.position-middle {
+  padding: 20px;
+  font-size: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.position-down {
+  padding: 20px;
+  font-size: 2.3rem;
+  display: flex;
+  justify-content: end;
 }
