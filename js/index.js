@@ -18,8 +18,11 @@ const cardNames = [
 let visibleCard;
 let hiddenCard;
 
+const gameScreenElement = document.querySelector(".game-screen");
+const menuScreenElement = document.querySelector(".menu-screen");
 const visibleCardElement = document.querySelector(".visible-card");
 const hiddenCardElement = document.querySelector(".hidden-card");
+const startButtonElement = document.querySelector(".start-button");
 const biggerButtonElement = document.querySelector(".bigger-button");
 const smallerButtonElement = document.querySelector(".smaller-button");
 const equalButtonElement = document.querySelector(".equal-button");
@@ -75,10 +78,12 @@ const compareCards = () => {
 };
 
 const compareResults = (choice) => {
-  if (compareCards() === choice) {
-    answerElement.textContent = "Si! Muy bien!";
-  } else {
-    answerElement.textContent = "No has acertado, a la próxima!";
+  if (!answerElement.classList.contains("hidden")) {
+    if (compareCards() === choice) {
+      answerElement.textContent = "Si! Muy bien!";
+    } else {
+      answerElement.textContent = "No has acertado, a la próxima!";
+    }
   }
 };
 
@@ -112,4 +117,19 @@ equalButtonElement.addEventListener("click", (event) => {
   hiddenCardMiddlePositionElement.classList.remove("hidden");
   hiddenCardDownPositionElement.classList.remove("hidden");
   compareResults("equal");
+});
+
+homeButtonElement.addEventListener("click", (event) => {
+  gameScreenElement.classList.add("hidden");
+  menuScreenElement.classList.remove("hidden");
+});
+
+startButtonElement.addEventListener("click", (event) => {
+  gameScreenElement.classList.remove("hidden");
+  menuScreenElement.classList.add("hidden");
+  selectCards();
+  answerElement.classList.add("hidden");
+  hiddenCardUpPositionElement.classList.add("hidden");
+  hiddenCardMiddlePositionElement.classList.add("hidden");
+  hiddenCardDownPositionElement.classList.add("hidden");
 });

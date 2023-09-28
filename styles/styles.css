@@ -25,10 +25,15 @@ button {
 
 .header {
   margin: 0;
-  padding: 10px;
+  padding: 6px;
   text-align: center;
   border-bottom: 2px solid var(--border-color);
   box-shadow: 4px 4px 4px 1px var(--shadow-color);
+}
+
+.main-title {
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px var(--shadow-color);
 }
 
 .main {
@@ -37,6 +42,21 @@ button {
 
 .game-screen {
   margin: 0;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.menu-screen {
+  margin: 0;
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cards-container {
@@ -89,11 +109,13 @@ button {
 .h2 {
   margin: 0;
   padding: 10px;
+  font-size: 1.7rem;
   text-align: center;
 }
 
 .answer {
   margin: 0;
+  height: 70px;
   padding: 20px;
   text-align: center;
 }
@@ -123,8 +145,8 @@ button {
 }
 
 .position-up {
-  padding: 20px;
-  font-size: 2.5rem;
+  padding: 14px;
+  font-size: 3rem;
   font-family: "Tinos", serif;
   display: flex;
   justify-content: start;
@@ -132,18 +154,19 @@ button {
 
 .position-middle {
   padding: 20px;
-  font-size: 6rem;
+  font-size: 7rem;
   font-family: "Tinos", serif;
   display: flex;
   justify-content: center;
 }
 
 .position-down {
-  padding: 20px;
-  font-size: 2.5rem;
+  padding: 14px;
+  font-size: 3rem;
   font-family: "Tinos", serif;
   display: flex;
-  justify-content: end;
+  justify-content: start;
+  transform: rotate(180deg);
 }
 
 .hidden {
