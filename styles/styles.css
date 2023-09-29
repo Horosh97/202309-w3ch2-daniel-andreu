@@ -20,6 +20,8 @@ html {
 
 body {
   margin: 0;
+  background-image: url(/images/background.jpg);
+  background-size: cover;
 }
 
 @keyframes crescendo-cards {
@@ -94,8 +96,6 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(/images/background.jpg);
-  background-size: cover;
 }
 
 .cards-container {
@@ -209,6 +209,7 @@ button:active {
   width: 200px;
   padding: 12px;
   font-size: 1.6rem;
+  background-color: #ffffff;
 }
 
 .position-up {
